@@ -105,7 +105,16 @@ class PascalVOC2007XML:
                         box.cls_name = item.text
                     elif item.tag == "bndbox":
                         coords = [int(float(_.text)) for _ in item.getchildren()]
-                        box.x1, box.y1, box.x2, box.y2 = coords
+                        for child in item.getchildren():
+                            value = int(float(child.text))
+                            if child.tag == "xmin":
+                                box.x1 = value
+                            if child.tag == "ymin":
+                                box.y1 = value
+                            if child.tag == "xmax":
+                                box.x2 = value
+                            if child.tag == "ymax":
+                                box.y2 = value
                 self.boxes.append(box)
         return self.boxes
 

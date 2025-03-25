@@ -14,7 +14,7 @@ _News_:
 ```bash
 git clone https://github.com/zchrissirhcz/imageset-viewer
 cd imageset-viewer
-pip install -r requirements.txt
+pip install .
 ```
 
 
